@@ -18,6 +18,10 @@ SONY_ROOT = device/sony/kitakami-common/rootdir
 PRODUCT_COPY_FILES += \
     $(SONY_ROOT)/twrp.fstab:recovery/root/etc/twrp.fstab
 
+# Bootimg tools
+PRODUCT_PACKAGES += \
+    extract_elf_ramdisk
+
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
     telephony.lteOnGSMDevice=1
