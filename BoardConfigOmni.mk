@@ -14,6 +14,7 @@
 
 # Kernel
 BOARD_CUSTOM_BOOTIMG := true
+BOARD_CUSTOM_BOOTIMG_MK := device/sony/kitakami-common/boot/custombootimg.mk
 BOARD_KERNEL_SEPARATED_DT := true
 
 # Proprietary files
