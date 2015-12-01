@@ -131,4 +131,4 @@ BUILD_KERNEL := true
 # SELinux
 include device/qcom/aosp-sepolicy/sepolicy.mk
 
-BOARD_SEPOLICY_DIRS += device/sony/kitakami/sepolicy
+BOARD_SEPOLICY_DIRS += device/sony/kitakami-common/sepolicy
