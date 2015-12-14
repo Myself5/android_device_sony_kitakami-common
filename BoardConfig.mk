@@ -133,7 +133,7 @@ BUILD_KERNEL := true
 include device/qcom/aosp-sepolicy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += \
-    device/sony/kitakami/sepolicy
+    device/sony/kitakami-common/sepolicy
 
 BOARD_SEPOLICY_UNION += \
     addrsetup.te \
