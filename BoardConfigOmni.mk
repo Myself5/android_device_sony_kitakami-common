@@ -27,6 +27,9 @@ BOARD_KERNEL_SEPARATED_DT := true
 # Proprietary files
 SONY_AOSP ?= true
 
+# Use device's audio_effects.conf
+TARGET_USE_DEVICE_AUDIO_EFFECTS_CONF := true
+
 # TWRP Recovery
 TARGET_NO_SEPARATE_RECOVERY := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
