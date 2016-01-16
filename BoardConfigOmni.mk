@@ -24,6 +24,9 @@ BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := device/sony/kitakami-common/boot/custombootimg.mk
 BOARD_KERNEL_SEPARATED_DT := true
 
+# NFC
+BOARD_NFC_HAL_SUFFIX := msm8994
+
 # Proprietary files
 SONY_AOSP ?= true
 
