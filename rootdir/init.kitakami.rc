@@ -104,11 +104,7 @@ on post-fs-data
     mkdir /data/misc/camera 0770 camera camera
 
     # Sensors
-    mkdir /data/system 0775 system system
-    mkdir /data/system/sensors 0775 system system
     mkdir /data/misc/sensors 0775 system system
-    write /data/system/sensors/settings 1
-    chmod 664 /data/system/sensors/settings
 
     chown system /dev/block/bootdevice/by-name
 
@@ -372,6 +368,18 @@ on property:ro.boot.baseband=apq
 on property:ro.boot.baseband=msm
     start qmuxd
     start netmgrd
+
+on property:persist.radio.multisim.config=dsds
+    start ril-daemon2
+
+service ril-daemon2 /system/bin/rild -c 2
+    class main
+    socket rild2 stream 660 root radio
+    socket sap_uim_socket2 stream 660 bluetooth bluetooth
+    socket rild2-debug stream 660 radio system
+    user root
+    disabled
+    group radio cache inet misc audio log
 
 # QCOM prop
 service qmuxd /system/vendor/bin/qmuxd
