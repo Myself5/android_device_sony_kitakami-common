@@ -2,7 +2,7 @@ LOCAL_PATH := $(call my-dir)
 
 uncompressed_ramdisk := $(PRODUCT_OUT)/ramdisk.cpio
 $(uncompressed_ramdisk): $(INSTALLED_RAMDISK_TARGET)
-	zcat $< > $@
+	gunzip -c $< > $@
 
 INITSH := $(LOCAL_PATH)/init.sh
 BOOTREC_DEVICE := $(TARGET_RECOVERY_ROOT_OUT)/etc/bootrec-device
@@ -13,7 +13,7 @@ DTBTOOL := $(HOST_OUT_EXECUTABLES)/dtbToolCM$(HOST_EXECUTABLE_SUFFIX)
 $(INSTALLED_DTIMAGE_TARGET): $(DTBTOOL) $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr $(INSTALLED_KERNEL_TARGET)
 	@echo -e ${CL_CYN}"----- Making DT image ------"${CL_RST}
 	$(call pretty,"Target DT image: $@")
-	$(hide) $(DTBTOOL) -2 -o $(INSTALLED_DTIMAGE_TARGET) -s $(BOARD_KERNEL_PAGESIZE) -p $(KERNEL_OUT)/scripts/dtc/ $(KERNEL_OUT)/arch/arm64/boot/dts/
+	$(hide) $(DTBTOOL) $(TARGET_DTB_EXTRA_FLAGS) -o $(INSTALLED_DTIMAGE_TARGET) -s $(BOARD_KERNEL_PAGESIZE) -p $(KERNEL_OUT)/scripts/dtc/ $(KERNEL_OUT)/arch/arm64/boot/dts/
 	@echo -e ${CL_CYN}"Made DT image: $@"${CL_RST}
 
 $(INSTALLED_BOOTIMAGE_TARGET): \

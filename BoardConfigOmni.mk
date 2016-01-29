@@ -23,6 +23,7 @@ BLUE_LED_PATH := /sys/class/leds/led:rgb_blue/brightness
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := device/sony/kitakami-common/boot/custombootimg.mk
 BOARD_KERNEL_SEPARATED_DT := true
+TARGET_DTB_EXTRA_FLAGS := -2
 
 # Proprietary files
 SONY_AOSP ?= true
